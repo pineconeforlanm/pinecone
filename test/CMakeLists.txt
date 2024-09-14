@@ -1,0 +1,4 @@
+if (PINECONE_ENABLE_TEST)
+    add_subdirectory(unit_test)
+endif ()
+add_subdirectory(pinecone)
