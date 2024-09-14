@@ -1,0 +1,23 @@
+# This file is managed by Conan, contents will be overwritten.
+# To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements
+
+requirements:
+  - "log4cxx/1.2.0"
+  - "log4cplus/2.1.1"
+  - "libmysqlclient/8.1.0"
+  - "libcurl/8.9.1"
+  - "hiredis/1.2.0"
+  - "glog/0.7.1"
+  - "gflags/2.2.2"
+  - "gtest/1.15.0"
+  - "benchmark/1.8.4"
+  - "cli11/2.4.2"
+  - "magic_enum/0.9.6"
+  - "protobuf/5.27.0"
+  - "spdlog/1.14.1"
+  - "yaml-cpp/0.8.0"
+  - "nlohmann_json/3.11.3"
+  - "rapidjson/1.1.0"
+  - "async_simple/1.0.0"
+  - "openssl/3.3.1"
+  - "boost/1.85.0"
