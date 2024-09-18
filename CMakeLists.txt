@@ -8,5 +8,6 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
 
 project(pinecone VERSION 0.0.1 LANGUAGES C CXX)
 
-add_subdirectory(pinecone)
+add_subdirectory(src)
 add_subdirectory(test)
+add_subdirectory(third_party)
