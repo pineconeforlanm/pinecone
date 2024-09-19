@@ -11,8 +11,7 @@ constexpr std::string_view kGitVersion{GIT_VERSION};
 constexpr std::string_view kGitData{GIT_DATE};
 constexpr std::string_view kGitHash{GIT_HASH};
 constexpr std::string_view kBuildTime{BUILD_TIME};
-constexpr std::string_view kDetailVersion{
-    PROJECT_VERSION "." BUILD_TIME "-" GIT_VERSION "-" GIT_DATE "-" GIT_HASH};
+constexpr std::string_view kDetailVersion{PROJECT_VERSION "." BUILD_TIME "-" GIT_VERSION "-" GIT_DATE "-" GIT_HASH};
 }  // namespace
 
 auto GetBuildTime() -> std::string_view { return kBuildTime; }
@@ -29,8 +28,7 @@ auto GetGitHash() -> std::string_view { return kGitHash; }
 
 namespace third_party {
 auto GetBoostVersion() -> std::string_view { return BOOST_LIB_VERSION; }
-[[maybe_unused]] auto GetYltVersion() -> decltype(YLT_VERSION) {
-  return YLT_VERSION;
-}
+
+auto GetYltVersion() -> decltype(YLT_VERSION) { return YLT_VERSION; }
 }  // namespace third_party
 }  // namespace pinecone::info

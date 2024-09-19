@@ -1,6 +1,7 @@
 //
 // Created by 28192 on 2024/9/14.
 //
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 #include <pinecone/copyable.hpp>
@@ -11,16 +12,13 @@ namespace {
 constexpr auto kNumber{3};
 
 class ConfigPerson : public Copyable {
- private:
   std::string name_;
   int age_{};
 
  public:
   ConfigPerson(std::string_view name, int age) : name_(name), age_(age) {}
 
-  auto operator==(const ConfigPerson &other) const -> bool {
-    return name_ == other.name_ && age_ == other.age_;
-  }
+  auto operator==(const ConfigPerson& other) const -> bool { return name_ == other.name_ && age_ == other.age_; }
 };
 
 }  // namespace

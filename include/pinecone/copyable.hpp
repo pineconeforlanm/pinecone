@@ -6,7 +6,6 @@
 #define PINECONE_COPYABLE_H
 
 namespace pinecone {
-
 /// A tag class emphasises the objects are Copyable.
 /// The empty base class optimization applies.
 /// Any derived class of Copyable should be a value type.
@@ -16,7 +15,6 @@ class Copyable {
 
   ~Copyable() = default;
 };
-
 }  // namespace pinecone
 
 #endif  // PINECONE_COPYABLE_H

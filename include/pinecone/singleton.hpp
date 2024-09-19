@@ -35,9 +35,10 @@ class BaseSingleton : public pinecone::Noncopyable {
 
   static auto GetInstance() -> std::shared_ptr<T> {
     static std::once_flag s_flag;
-    std::call_once(s_flag, [&]() { instance = std::shared_ptr<T>(new T); });
+    std::call_once(s_flag, [&]() { instance = std::make_shared<T>(); });
     return instance;
   }
+
   ~BaseSingleton() = default;
 
  protected:
@@ -46,7 +47,6 @@ class BaseSingleton : public pinecone::Noncopyable {
 
 template <typename T>
 std::shared_ptr<T> BaseSingleton<T>::instance = nullptr;
-
 }  // namespace pinecone::util
 
 #endif  // PINECONE_SINGLETON_H

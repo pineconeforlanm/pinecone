@@ -6,7 +6,6 @@
 #define PINECONE_NONCOPYABLE_H
 
 namespace pinecone {
-
 class Noncopyable {
  public:
   Noncopyable(const Noncopyable &) = delete;
@@ -18,7 +17,6 @@ class Noncopyable {
 
   ~Noncopyable() = default;
 };
-
 }  // namespace pinecone
 
 #endif  // PINECONE_NONCOPYABLE_H

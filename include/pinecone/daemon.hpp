@@ -17,7 +17,6 @@
 #include <string>
 
 namespace pinecone {
-
 class ProcessInfo {
  public:
   using TimePoint = std::chrono::time_point<std::chrono::system_clock>;
@@ -34,30 +33,19 @@ class ProcessInfo {
 
   [[nodiscard]] auto GetMainId() const -> pid_t { return main_id_; }
 
-  auto SetParentStartTime(const TimePoint &start_time) -> void {
-    parent_start_time_ = start_time;
-  }
+  auto SetParentStartTime(const TimePoint &start_time) -> void { parent_start_time_ = start_time; }
 
-  [[nodiscard]] auto GetParentStartTime() const -> TimePoint {
-    return parent_start_time_;
-  }
+  [[nodiscard]] auto GetParentStartTime() const -> TimePoint { return parent_start_time_; }
 
-  auto SetMainStartTime(const TimePoint &start_time) -> void {
-    main_start_time_ = start_time;
-  }
+  auto SetMainStartTime(const TimePoint &start_time) -> void { main_start_time_ = start_time; }
 
-  [[nodiscard]] auto GetMainStartTime() const -> TimePoint {
-    return main_start_time_;
-  }
+  [[nodiscard]] auto GetMainStartTime() const -> TimePoint { return main_start_time_; }
 
-  [[nodiscard]] auto GetRestartCount() const -> uint64_t {
-    return restart_count_.load();
-  }
+  [[nodiscard]] auto GetRestartCount() const -> uint64_t { return restart_count_.load(); }
 
   auto ReloadRestartCount() -> void { restart_count_.fetch_add(1); }
 
-  [[nodiscard]] auto ToString(
-      std::string_view time_fmt = "%Y-%m-%d %H:%M:%S") const -> std::string;
+  [[nodiscard]] auto ToString(std::string_view time_fmt = "%Y-%m-%d %H:%M:%S") const -> std::string;
 
  private:
   pid_t parent_id_;
@@ -69,9 +57,7 @@ class ProcessInfo {
 
 using ProcessInfoMgr = pinecone::util::Singleton<ProcessInfo>;
 
-auto StartDaemon(int argc, char **argv,
-                 const std::function<int(int argc, char **argv)> &main_cb,
-                 bool is_daemon) -> int;
+auto StartDaemon(int argc, char **argv, const std::function<int(int, char **)> &main_cb, bool is_daemon) -> int;
 }  // namespace pinecone
 
 #endif  // PINECONE_DAEMON_H
