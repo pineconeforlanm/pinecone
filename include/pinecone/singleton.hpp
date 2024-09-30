@@ -9,7 +9,7 @@
 #include <mutex>
 #include <pinecone/noncopyable.hpp>
 
-namespace pinecone::util {
+namespace pinecone {
 template <class T>
 class Singleton {
  public:
@@ -29,7 +29,7 @@ class SingletonPtr {
 };
 
 template <typename T>
-class BaseSingleton : public pinecone::Noncopyable {
+class BaseSingleton : public Noncopyable {
  public:
   BaseSingleton() = default;
 

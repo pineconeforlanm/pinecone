@@ -4,13 +4,12 @@
 #include <gtest/gtest.h>
 
 #include <pinecone/copyable.hpp>
+#include <string>
+#include <string_view>
 
 namespace pinecone {
 namespace {
-constexpr auto kNumber{3};
-
 class ConfigPerson : public Copyable {
- private:
   std::string name_;
   int age_{};
 
@@ -24,7 +23,7 @@ class ConfigPerson : public Copyable {
 
 }  // namespace
 
-class CopyableTest : public ::testing::Test {
+class CopyableTest : public testing::Test {
  public:
   auto SetUp() -> void override {}
 
@@ -32,8 +31,8 @@ class CopyableTest : public ::testing::Test {
 };
 
 TEST_F(CopyableTest, base) {
-  auto person_1 = ConfigPerson("zhang_san", 18);
-  auto person_2 = person_1;
+  const auto person_1 = ConfigPerson("zhang_san", 18);
+  const auto person_2 = person_1;
   EXPECT_EQ(person_1, person_2);
 }
 

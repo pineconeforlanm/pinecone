@@ -4,10 +4,9 @@
 #include <gtest/gtest.h>
 
 #include <pinecone/singleton.hpp>
-
+#include <string>
 namespace pinecone {
 namespace {
-constexpr auto kNumber{3};
 struct ConfigPerson {
   std::string name;
   int age;
@@ -18,7 +17,7 @@ struct ConfigPerson {
 };
 }  // namespace
 
-class SingletonTest : public ::testing::Test {
+class SingletonTest : public testing::Test {
  public:
   auto SetUp() -> void override {}
 
@@ -26,8 +25,8 @@ class SingletonTest : public ::testing::Test {
 };
 
 TEST_F(SingletonTest, base) {
-  auto person_1 = pinecone::util::Singleton<ConfigPerson>::GetInstance();
-  auto person_2 = pinecone::util::Singleton<ConfigPerson>::GetInstance();
+  const auto *person_1 = Singleton<ConfigPerson>::GetInstance();
+  const auto *person_2 = Singleton<ConfigPerson>::GetInstance();
   EXPECT_EQ(person_1, person_2);
   EXPECT_EQ(*person_1, *person_2);
 }

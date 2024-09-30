@@ -1,8 +1,8 @@
 file(GLOB ALL_PCSG_TEST_FILES "./*.cc")
 
 set(EXECUTABLE_PREFIX "test_pinecone_base")
-
-set(ALL_PCSG_TEST_LIBS pinecone)
+find_package(yaml-cpp)
+set(ALL_PCSG_TEST_LIBS pinecone yaml-cpp::yaml-cpp)
 
 foreach (TEST_EXECUTABLE ${ALL_PCSG_TEST_FILES})
     get_filename_component(FILENAME_WITH_EXT ${TEST_EXECUTABLE} NAME)

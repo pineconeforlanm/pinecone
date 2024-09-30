@@ -1,7 +1,6 @@
 //
 // Created by 28192 on 2024/9/14.
 //
-#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 #include <pinecone/copyable.hpp>
@@ -9,8 +8,6 @@
 
 namespace pinecone {
 namespace {
-constexpr auto kNumber{3};
-
 class ConfigPerson : public Copyable {
   std::string name_;
   int age_{};
@@ -23,7 +20,7 @@ class ConfigPerson : public Copyable {
 
 }  // namespace
 
-class DaemonTest : public ::testing::Test {
+class DaemonTest : public testing::Test {
  public:
   auto SetUp() -> void override {}
 

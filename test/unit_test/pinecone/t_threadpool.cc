@@ -10,7 +10,7 @@ namespace {
 constexpr auto kNumber{3};
 }
 
-class ThreadPoolTest : public ::testing::Test {
+class ThreadPoolTest : public testing::Test {
  public:
   auto SetUp() -> void override {}
 
@@ -18,9 +18,9 @@ class ThreadPoolTest : public ::testing::Test {
 };
 
 TEST_F(ThreadPoolTest, base) {
-  auto pool = pinecone::base::ThreadPool::GetInstance();
+  const auto pool = ThreadPool::GetInstance();
   [[maybe_unused]] auto count = pool->GetIdleThreadCount();
-  auto result = pool->Commit([]() { return kNumber; });
+  auto result = pool->Commit([] { return kNumber; });
   EXPECT_EQ(kNumber, result.get());
 }
 
